@@ -1,0 +1,13 @@
+{
+  "name": "nans",
+  "version": "1.0.0",
+  "description": "Dottie Goes Live slot",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "phaser": "^3.90.0"
+  }
+}

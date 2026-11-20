@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html,
+  body,
+  #root {
+    margin: 0;
+    height: 100%;
+    background: #120726;
+    overflow: hidden;
+  }
+}
+
+.game-shell,
+#game {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #120726;
+  z-index: 1;
+}
+
+#game canvas {
+  display: block;
+}
