@@ -1,0 +1,5 @@
+require('./src/engine.js'); const E=globalThis.Engine; const N=+process.argv[2]||400000; const which=process.argv[3]||'all';
+function run(opt,n,sess){let t=0,fs=0,tip=0,goals=0,texts=0,hen=0,max=0;for(let i=0;i<n;i++){const o=Object.assign({},opt);if(sess)o.tip=tip;const r=E.play(o);if(sess)tip=r.tip;if(r.goal)goals++;t+=r.total;if(r.total>max)max=r.total;if(r.free){fs++;if(r.free.spins.some(s=>s.henStart))hen++;}if(r.events.some(e=>e.type==='text'))texts++;}
+return [(t/n).toFixed(3),'RTP',(100*t/n/E.costOf(opt)).toFixed(1)+'%','FS 1/'+(n/fs).toFixed(0),'goal 1/'+(n/goals).toFixed(0),'text 1/'+(n/texts).toFixed(0),'hen/FS',(hen/fs).toFixed(3),'max',max.toFixed(0)].join(' ');}
+if(which!='buys'){console.log('base  ',run({},N*3,1));console.log('frisky',run({boost:'cruise'},N*3,1));console.log('gobby ',run({boost:'chat'},N*3,1));}
+if(which!='base'){console.log('quickie',run({buy:'spin'},N/2));console.log('weekend',run({buy:'cruise'},N/6));console.log('fortnight',run({buy:'filthy'},N/6));}
