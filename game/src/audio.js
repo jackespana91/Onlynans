@@ -35,6 +35,7 @@
     music(m) { mode = m || mode; try { if (S.ext && S.ext.game.cache.audio.exists('music_base')) { if (timer) { clearInterval(timer); timer = null; } const k = mode === 'base' ? 'music_base' : 'music_live'; if (S.song === k && S.songObj && S.songObj.isPlaying) return; if (S.songObj) { S.songObj.stop(); S.songObj.destroy(); } S.song = k; S.songObj = S.ext.add(k, { loop: true, volume: 0.32 }); S.songObj.play(); return; } } catch (e) { }
       if (!ac || timer) return; nextT = ac.currentTime + 0.1; step = 0; timer = setInterval(sched, 60); }
   };
+  // cheeky music-hall oom-pah, 8 bars
   const CH = [[60, 64, 67], [60, 64, 67], [65, 69, 72], [60, 64, 67], [67, 71, 74], [65, 69, 72], [60, 64, 67], [67, 71, 74]];
   const MEL = [[76, 0, 79, 76, 72, 0, 74, 76], [79, 0, 76, 0, 72, 74, 76, 0], [77, 0, 81, 77, 72, 0, 74, 77], [76, 79, 76, 72, 0, 0, 67, 72], [74, 0, 79, 74, 71, 0, 74, 79], [77, 76, 74, 72, 69, 0, 72, 74], [76, 0, 72, 76, 79, 0, 84, 0], [83, 79, 74, 71, 67, 0, 0, 0]];
   function sched() {
